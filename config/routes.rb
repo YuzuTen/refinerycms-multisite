@@ -1,9 +1,9 @@
-Refinery::Application.routes.draw do
-
-  scope(:path => 'refinery', :as => 'admin', :module => 'admin') do
-    resources :sites do
-      resources :hostnames
+::Refinery::Application.routes.draw do
+  scope(:module=> 'refinery') do
+    scope(:module => 'admin', :path => 'refinery', :as => 'refinery_admin') do
+      resources :sites do
+        resources :hostnames
+      end
     end
   end
-
 end

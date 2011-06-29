@@ -9,10 +9,10 @@ module Refinery
       end
 
       config.after_initialize do
-        Refinery::Plugin.register do |plugin|
-          plugin.name = "sites"
+        ::Refinery::Plugin.register do |plugin|
+          plugin.name = "refinery_sites"
           plugin.activity = {
-            :class => Site,
+            :class => ::Site,
             :title => 'name'
           }
         end
