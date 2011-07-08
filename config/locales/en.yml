@@ -2,12 +2,16 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  plugins:
-    sites:
-      title: Sites
-  admin:
-    sites:
-      actions:
-        new: 'new site'
-      edit: 'edit site'
-      delete: 'remove site'
+  refinery:
+    plugins:
+      refinery_sites:
+        title: Sites
+    admin:
+      sites:
+        delete: Remove this site forever
+        edit: Edit this site
+        actions:
+          new: 'New site'
+          edit: 'Edit site'
+          delete: 'Remove site'
+      

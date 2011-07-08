@@ -1,20 +1,27 @@
-
 require 'refinerycms-base'
 
 module Refinery
   module Sites
     class Engine < Rails::Engine
-      initializer "static assets" do |app|
-        app.middleware.insert_after ::ActionDispatch::Static, ::ActionDispatch::Static, "#{root}/public"
+
+      class << self
+        attr_accessor :root
+        def root
+          @root ||= Pathname.new(File.expand_path('../../', __FILE__))
+        end
       end
 
-      config.after_initialize do
-        ::Refinery::Plugin.register do |plugin|
-          plugin.name = "refinery_sites"
-          plugin.activity = {
-            :class => ::Site,
-            :title => 'name'
-          }
+      class Engine < ::Rails::Engine
+        isolate_namespace ::Refinery
+
+        initializer "init plugin", :after => :set_routes_reloader do |app|
+          ::Refinery::Plugin.register do |plugin|
+            plugin.pathname = root
+            plugin.name = 'refinery_sites'
+            plugin.url = app.routes.url_helpers.refinery_admin_sites_path
+            plugin.version = Refinerycms::Multisite::VERSION
+            plugin.menu_match = /refinery\/sites$/
+          end
         end
       end
     end

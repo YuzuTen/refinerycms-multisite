@@ -6,14 +6,14 @@
   </span>
   <span class='actions'>
     <%= link_to refinery_icon_tag('application_edit.png'),
-                edit_admin_site_path(site, :dialog => true,
+                main_app.edit_refinery_admin_site_path(site, :dialog => true,
                                   :width => 725, :height => 525),
-                :title => t('edit', :scope => 'admin.sites') %>
+                :title => t('edit', :scope => 'refinery.admin.sites') %>
     <%= link_to refinery_icon_tag('delete.png'),
-                admin_site_path(site),
+                main_app.refinery_admin_site_path(site),
                 :class => 'cancel confirm-delete',
-                :title => t('delete', :scope => 'admin.sites'),
-                :confirm => t('message', :scope => 'shared.admin.delete',
+                :title => t('delete', :scope => 'refinery.admin.sites'),
+                :confirm => t('message', :scope => 'refinery.admin.delete',
                               :title => site.name),
                 :method => :delete %>
   </span>

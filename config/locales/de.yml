@@ -1,11 +1,14 @@
 de:
-  plugins:
-    sites:
-      title: Sites
-  admin:
-    sites:
-      actions:
-        new: 'Site hinzufügen'
-      edit: 'Site anpassen'
-      delete: 'Site entfernen'
+  refinery:
+    plugins:
+      refinery_sites:
+        title: Sites
+    admin:
+      sites:
+        delete: Diese Site für immer löschen
+        edit: Diese Site bearbeiten
+        actions:
+          new: 'Site hinzufügen'
+          edit: 'Site anpassen'
+          delete: 'Site entfernen'
 
